@@ -1,0 +1,19 @@
+{
+	"name": "folivora-btt",
+	"version": "1.0.1",
+	"api_version": "1.0.0",
+	"keywords": [
+		"Protocol",
+		"Webhooks"
+	],
+	"manufacturer": "folivora.ai",
+	"product": "BTT",
+	"shortname": "btt",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "TaCheng Hou <houtacheng@gmail.com>",
+	"license": "MIT",
+	"homepage": "https://github.com/bitfocus/"
+}
