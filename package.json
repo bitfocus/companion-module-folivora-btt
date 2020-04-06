@@ -7,7 +7,7 @@
 		"Webhooks"
 	],
 	"manufacturer": "folivora.ai",
-	"product": "BTT",
+	"product": "BetterTouchTool (BTT)",
 	"shortname": "btt",
 	"main": "index.js",
 	"scripts": {
