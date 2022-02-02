@@ -15,5 +15,12 @@
 	},
 	"author": "TaCheng Hou <houtacheng@gmail.com>",
 	"license": "MIT",
-	"homepage": "https://github.com/bitfocus/"
+	"homepage": "https://github.com/bitfocus/",
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-folivora-btt/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-folivora-btt.git"
+	}
 }
