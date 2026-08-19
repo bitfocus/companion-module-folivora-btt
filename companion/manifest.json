@@ -1,0 +1,38 @@
+{
+	"$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+	"type": "connection",
+	"id": "folivora-btt",
+	"name": "companion-module-folivora-btt",
+	"shortname": "BTT",
+	"description": "Control BetterTouchTool on macOS over its built-in webserver. Fire named triggers and trigger UUIDs, show/hide floating menus (handy for displaying the Companion web UI on your Mac), set BTT variables, run Shortcuts, and chain into Alfred / Keyboard Maestro via BTT actions.",
+	"version": "2.0.2",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-folivora-btt.git",
+	"bugs": "https://github.com/bitfocus/companion-module-folivora-btt/issues",
+	"maintainers": [
+		{
+			"name": "TaCheng Hou",
+			"email": "houtacheng@gmail.com"
+		}
+	],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "2.1.3",
+		"entrypoint": "../src/index.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "folivora.ai",
+	"products": [
+		"BetterTouchTool"
+	],
+	"keywords": [
+		"macOS",
+		"automation",
+		"BetterTouchTool",
+		"BTT",
+		"Alfred",
+		"Keyboard Maestro",
+		"Shortcuts"
+	]
+}
