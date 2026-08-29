@@ -36,7 +36,7 @@ npm install
 Point Companion's developer modules path at this folder and restart it. There is no build step —
 the module is plain ESM under `src/`.
 
-## Version 2.0.2
+## Version 2.0.3
 
 Rewritten for the Companion v3 module API. Module v1.0.x targeted Companion v2's `instance_skel`,
 which no longer exists, so it could not load at all in current Companion.
@@ -52,6 +52,9 @@ health check, and error reporting that distinguishes "not listening" from "wrong
 2.0.1 fixes two calls into the module API that prevented the connection from starting: presets are
 registered with the `setPresetDefinitions(structure, presets)` two-argument form and declare
 `type: 'simple'`, and variable definitions are passed as an object rather than an array.
+
+2.0.3 is identical in code to 2.0.2; it exists only because the 2.0.2 submission could not be taken
+out of prerelease state in the developer portal.
 
 2.0.2 fixes actions silently doing nothing when pressed. They called
 `context.parseVariablesInString()`, which module API 2.x removed — option values now arrive already
