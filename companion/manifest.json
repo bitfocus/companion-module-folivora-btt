@@ -5,7 +5,7 @@
 	"name": "companion-module-folivora-btt",
 	"shortname": "BTT",
 	"description": "Control BetterTouchTool on macOS over its built-in webserver. Fire named triggers and trigger UUIDs, show/hide floating menus (handy for displaying the Companion web UI on your Mac), set BTT variables, run Shortcuts, and chain into Alfred / Keyboard Maestro via BTT actions.",
-	"version": "2.0.4",
+	"version": "2.0.5",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-folivora-btt.git",
 	"bugs": "https://github.com/bitfocus/companion-module-folivora-btt/issues",

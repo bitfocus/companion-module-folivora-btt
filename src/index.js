@@ -37,8 +37,9 @@ class BttInstance extends InstanceBase {
 		this.setVariableDefinitions(buildVariableDefinitions())
 
 		this.updateStatus(InstanceStatus.Connecting)
-		await this.#checkConnection()
+		this.#syncVariables()
 		this.#startPolling()
+		this.#kickConnectionCheck()
 	}
 
 	async destroy() {
@@ -51,8 +52,9 @@ class BttInstance extends InstanceBase {
 		this.floatingMenuShown.clear()
 
 		this.updateStatus(InstanceStatus.Connecting)
-		await this.#checkConnection()
+		this.#syncVariables()
 		this.#startPolling()
+		this.#kickConnectionCheck()
 	}
 
 	getConfigFields() {
@@ -120,6 +122,19 @@ class BttInstance extends InstanceBase {
 		this.updateStatus(STATUS_BY_KIND[kind] ?? InstanceStatus.UnknownError, message)
 		this.checkFeedbacks(FEEDBACK_IDS.connectionOk)
 		this.#syncVariables()
+	}
+
+	/**
+	 * Companion waits for init()/configUpdated() to resolve before it treats the
+	 * save as complete, so neither may block on network I/O. An unreachable host
+	 * does not fail fast — the request sits until the configured timeout — which
+	 * would stall the save for seconds at exactly the moment the user is trying
+	 * to correct a wrong address. Start the check and return immediately.
+	 */
+	#kickConnectionCheck() {
+		this.#checkConnection().catch(() => {
+			/* #checkConnection reports its own failures; never surface a rejection here */
+		})
 	}
 
 	async #checkConnection() {

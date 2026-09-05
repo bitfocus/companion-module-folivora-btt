@@ -38,7 +38,7 @@ This repository uses **yarn** — Bitfocus CI rejects a `package-lock.json` and 
 Point Companion's developer modules path at this folder and restart it. There is no build step —
 the module is plain ESM under `src/`. `yarn run package` produces an importable `.tgz`.
 
-## Version 2.0.4
+## Version 2.0.5
 
 Rewritten for the Companion v3 module API. Module v1.0.x targeted Companion v2's `instance_skel`,
 which no longer exists, so it could not load at all in current Companion.
@@ -54,6 +54,11 @@ health check, and error reporting that distinguishes "not listening" from "wrong
 2.0.1 fixes two calls into the module API that prevented the connection from starting: presets are
 registered with the `setPresetDefinitions(structure, presets)` two-argument form and declare
 `type: 'simple'`, and variable definitions are passed as an object rather than an array.
+
+2.0.5 fixes saving the connection config hanging. `init()` and `configUpdated()` awaited a
+connection check, and Companion waits for those to resolve before the save completes — so an
+unreachable host stalled the save for the full request timeout, exactly when the user was trying to
+correct a wrong address. The check now runs in the background.
 
 2.0.4 switches the repository to yarn and raises `@companion-module/tools` to 3.1.0, both required by
 the Bitfocus module CI. No functional change to the module itself.
